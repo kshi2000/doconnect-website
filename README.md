@@ -1,4 +1,4 @@
-# Getting Started with the wesite
+# Getting Started with the website
 
   ## To run the website on browser: 
   
