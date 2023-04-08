@@ -5,6 +5,7 @@ import { Link, Outlet } from "react-router-dom";
 import NavItem from "./NavItem";
 import ProfileIcon from "../../icons/Profile";
 import StethoScopeIcon from "../../icons/StethoScope";
+import GlobalBg from "../GlobalBg";
 
 const NavBar = () => {
   return (
@@ -40,6 +41,7 @@ const NavBar = () => {
           </NavItem>
         </Flex>
       </Flex>
+      <GlobalBg />
       <Outlet />
     </>
   );
