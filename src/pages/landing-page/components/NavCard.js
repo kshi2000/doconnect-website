@@ -9,7 +9,13 @@ import {
 } from "@chakra-ui/react";
 
 const NavCard = ({ title, body, buttonText, destinationSlug }) => (
-  <Card backgroundColor={"background.gray"} maxW={350} m={2} align="center">
+  <Card
+    position="unset"
+    backgroundColor={"background.gray"}
+    maxW={350}
+    m={2}
+    align="center"
+  >
     <CardHeader textAlign={"center"}>
       <Heading size="md"> {title}</Heading>
     </CardHeader>

@@ -6,6 +6,9 @@ const theme = extendTheme({
     body: "Red Hat Display,sans-serif",
   },
   colors: {
+    title: {
+      form: "rgba(151, 160, 240, 1)",
+    },
     background: {
       gray: "#E9E5E5",
       transparentViolet: "rgba(205, 211, 245, 0.5)",
@@ -16,7 +19,13 @@ const theme = extendTheme({
   },
   borders: {
     navBar: `1px solid #D7D7D7`,
+    input: "1px solid black",
   },
+
+  borderRadius: {
+    input: "20px",
+  },
+
   components: {
     Container: {
       responsive: {
@@ -81,7 +90,7 @@ const theme = extendTheme({
           fontWeight: ["semibold", "semibold", "medium", "medium", "medium"],
         },
         heading5: {
-          fontSize: ["14px", "14px", "18px", "18px"],
+          fontSize: ["14px", "14px", "16px"],
           fontWeight: ["thin"],
         },
       },
@@ -90,6 +99,7 @@ const theme = extendTheme({
     Button: {
       variants: {
         navCardBtn: {
+          position: "unset",
           background: "#D7DCF7",
           borderRadius: "20px",
         },

@@ -1,4 +1,4 @@
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
 const PatientRecordsPage = () => {
   return <Button>Patient Records Page</Button>;
