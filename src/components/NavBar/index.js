@@ -1,10 +1,10 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon } from "@chakra-ui/react";
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { RxAvatar } from "react-icons/rx";
+import { GiStethoscope } from "react-icons/gi";
 
 import NavItem from "./NavItem";
-import ProfileIcon from "../../icons/Profile";
-import StethoScopeIcon from "../../icons/StethoScope";
 
 const NavBar = () => {
   return (
@@ -22,7 +22,7 @@ const NavBar = () => {
         <Flex alignItems="center" mx={5}>
           <Link to="/">
             <Flex alignItems="center">
-              <StethoScopeIcon />
+              <Icon boxSize={8} as={GiStethoscope} />
               <Box mx={2}>
                 <Heading variant="h2">DOConnect</Heading>
               </Box>
@@ -39,7 +39,7 @@ const NavBar = () => {
             <Heading variant="h2">Chat</Heading>
           </Box>
           <NavItem to="/profile">
-            <ProfileIcon />
+            <Icon boxSize={8} as={RxAvatar} />
           </NavItem>
         </Flex>
       </Flex>

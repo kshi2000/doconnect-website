@@ -8,6 +8,7 @@ const theme = extendTheme({
   colors: {
     title: {
       form: "rgba(151, 160, 240, 1)",
+      filterTab: "#D9D9D9",
     },
     background: {
       gray: "#E9E5E5",
@@ -28,16 +29,18 @@ const theme = extendTheme({
 
   components: {
     Container: {
-      responsive: {
-        maxW: [
-          "full",
-          "full",
-          "full",
-          "container.lg",
-          "container.xl",
-          "container.2xl",
-        ],
-        px: ["24px", "24px", "24px", "36px", "36px", "74px"],
+      variants: {
+        responsive: {
+          maxW: [
+            "full",
+            "full",
+            "full",
+            "container.lg",
+            "container.xl",
+            "container.2xl",
+          ],
+          px: ["24px", "24px", "24px", "36px", "36px", "74px"],
+        },
       },
     },
     Heading: {
