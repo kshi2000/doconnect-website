@@ -64,7 +64,6 @@ const LoginSignupForm = () => {
           <Card
             as="form"
             onSubmit={handleSubmit}
-            position="unset"
             mt={2}
             px={5}
             align="center"

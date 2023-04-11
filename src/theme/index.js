@@ -18,6 +18,12 @@ const theme = extendTheme({
       gray: "#D7D7D7",
     },
   },
+
+  zIndices: {
+    navBar: 1,
+    overlayImage: 2,
+  },
+
   borders: {
     navBar: `1px solid #D7D7D7`,
     input: "1px solid black",
@@ -102,7 +108,6 @@ const theme = extendTheme({
     Button: {
       variants: {
         navCardBtn: {
-          position: "unset",
           background: "#D7DCF7",
           borderRadius: "20px",
         },

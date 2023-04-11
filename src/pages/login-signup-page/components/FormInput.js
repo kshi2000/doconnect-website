@@ -28,14 +28,13 @@ const FormInput = ({
   const capitalizedName = getCapitalizedName(name);
 
   return (
-    <FormControl position="unset" isInvalid={!!error && touched}>
+    <FormControl isInvalid={!!error && touched}>
       <FormLabel htmlFor={name}>
         <Text fontWeight={"semibold"} variant="heading5">
           {label ?? capitalizedName}
         </Text>
       </FormLabel>
       <Input
-        position="unset"
         onReset={handleReset}
         id={name}
         type={type}

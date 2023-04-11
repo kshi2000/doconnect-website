@@ -10,6 +10,7 @@ const NavBar = () => {
   return (
     <>
       <Flex
+        zIndex="navBar"
         backgroundColor={"white"}
         position="sticky"
         top={0}

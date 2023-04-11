@@ -3,7 +3,6 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 const FilterEventsTab = () => (
   <HStack
-    position="unset"
     p={5}
     my={10}
     spacing={2}
@@ -11,31 +10,21 @@ const FilterEventsTab = () => (
     justifyContent="space-between"
     w="full"
   >
-    <Input
-      placeholder="Filter by Keyword"
-      backgroundColor="white"
-      position="unset"
-    />
-    <Select
-      placeholder="Select Location"
-      backgroundColor="white"
-      position="unset"
-    ></Select>
+    <Input placeholder="Filter by Keyword" backgroundColor="white" />
+    <Select placeholder="Select Location" backgroundColor="white"></Select>
     <Input
       placeholder="From date"
       backgroundColor="white"
       w={["sm", "md", "lg", "5xl"]}
-      position="unset"
       type="date"
     />
     <Input
       placeholder="To date"
       backgroundColor="white"
       w={["sm", "md", "lg", "5xl"]}
-      position="unset"
       type="date"
     />
-    <IconButton colorScheme="blue" position="unset" icon={<SearchIcon />} />
+    <IconButton colorScheme="blue" icon={<SearchIcon />} />
   </HStack>
 );
 

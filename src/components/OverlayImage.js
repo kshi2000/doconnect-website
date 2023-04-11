@@ -2,6 +2,7 @@ import { Flex, Image } from "@chakra-ui/react";
 
 const OverlayImage = () => (
   <Flex
+    zIndex="overlayImage"
     justifyContent="center"
     alignItems="center"
     pointerEvents={"none"}
