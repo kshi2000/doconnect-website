@@ -6,7 +6,7 @@ const loginSchema = {
     .email("Please enter valid email"),
   password: Yup.string()
     .required("This field is required")
-    .min(5, "Password must be atleast 5 characters")
+    .min(8, "Password must be atleast 8 characters")
     .max(20, "Password should be less than 20 characters"),
 };
 

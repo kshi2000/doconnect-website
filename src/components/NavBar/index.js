@@ -5,6 +5,7 @@ import { RxAvatar } from "react-icons/rx";
 import { GiStethoscope } from "react-icons/gi";
 
 import NavItem from "./NavItem";
+import LogOutBtn from "../LogOutBtn";
 
 const NavBar = () => {
   return (
@@ -42,6 +43,9 @@ const NavBar = () => {
           <NavItem to="/profile">
             <Icon boxSize={8} as={RxAvatar} />
           </NavItem>
+          <Box>
+            <LogOutBtn />
+          </Box>
         </Flex>
       </Flex>
       <Outlet />

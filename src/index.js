@@ -4,10 +4,13 @@ import App from "./App";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
+import AuthProvider from "./providers/AuthProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider theme={theme}>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </ChakraProvider>
 );

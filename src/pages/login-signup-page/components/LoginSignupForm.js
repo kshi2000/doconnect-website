@@ -16,6 +16,7 @@ import { useState } from "react";
 import EmailInput from "./FormInput";
 import PasswordInput from "./FormInput";
 import ConfirmPasswordInput from "./FormInput";
+import { useAuthContext } from "../../../providers/AuthProvider";
 
 const message = {
   login: "Hey!! Login to DOConnect.",
@@ -34,8 +35,15 @@ const getValuesByFormType = (isSignUpForm) => {
 };
 
 const LoginSignupForm = () => {
+  const { signUp, signIn } = useAuthContext();
+
   const onSubmit = (data, actions) => {
-    alert(JSON.stringify(data));
+    console.log(data);
+    if (isSignUpForm) {
+      signUp(data.email, data.password);
+    } else {
+      signIn(data.email, data.password);
+    }
     actions.resetForm();
   };
   const [isSignUpForm, setIsSignUpForm] = useState(true);

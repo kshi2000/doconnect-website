@@ -1,8 +1,10 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Text } from "@chakra-ui/react";
+import { Amplify } from "aws-amplify";
 
 import NavBar from "./components/NavBar";
+import awsconfig from "./aws-exports";
 
 const LandingPage = lazy(() => import("./pages/landing-page"));
 const LoginSignupPage = lazy(() => import("./pages/login-signup-page"));
@@ -11,6 +13,9 @@ const ProfilePage = lazy(() => import("./pages/profile-page"));
 const PatientRecordsPage = lazy(() => import("./pages/patient-records-page"));
 const EventsPage = lazy(() => import("./pages/events-page"));
 
+Amplify.configure(awsconfig);
+
+//TODO: Route protection, ui-feedback on login/signup, redirection
 const App = () => {
   return (
     <Suspense fallback={<Text>Loading ...</Text>}>
