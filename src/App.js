@@ -4,6 +4,7 @@ import { Text } from "@chakra-ui/react";
 import { Amplify } from "aws-amplify";
 
 import NavBar from "./components/NavBar";
+import AuthDependentRoute from "./components/AuthDependentRoute";
 import awsconfig from "./aws-exports";
 
 const LandingPage = lazy(() => import("./pages/landing-page"));
@@ -23,11 +24,40 @@ const App = () => {
         <Routes>
           <Route path="/" element={<NavBar />}>
             <Route index element={<LandingPage />} />
-            <Route path="login-signup" element={<LoginSignupPage />} />
-            <Route path="feed" element={<FeedPage />} />
-            <Route path="profile" element={<ProfilePage />} />
-            <Route path="patient-records" element={<PatientRecordsPage />} />
             <Route path="events" element={<EventsPage />} />
+
+            <Route
+              path="login-signup"
+              element={
+                <AuthDependentRoute isAuthPage>
+                  <LoginSignupPage />
+                </AuthDependentRoute>
+              }
+            />
+            <Route
+              path="feed"
+              element={
+                <AuthDependentRoute>
+                  <FeedPage />
+                </AuthDependentRoute>
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <AuthDependentRoute>
+                  <ProfilePage />
+                </AuthDependentRoute>
+              }
+            />
+            <Route
+              path="patient-records"
+              element={
+                <AuthDependentRoute>
+                  <PatientRecordsPage />
+                </AuthDependentRoute>
+              }
+            />
             <Route path="*" element={<Text>No page found</Text>} />
           </Route>
         </Routes>

@@ -6,8 +6,11 @@ import { GiStethoscope } from "react-icons/gi";
 
 import NavItem from "./NavItem";
 import LogOutBtn from "../LogOutBtn";
+import { useAuthContext } from "../../providers/AuthProvider";
 
 const NavBar = () => {
+  const { isLoggedIn } = useAuthContext();
+
   return (
     <>
       <Flex
@@ -31,18 +34,19 @@ const NavBar = () => {
             </Flex>
           </Link>
           <Flex alignItems="center" mx={2}>
-            <NavItem to="/feed">Feed</NavItem>
+            {isLoggedIn && <NavItem to="/feed">Feed</NavItem>}
             <NavItem to="/events">Events</NavItem>
-            <NavItem to="/patient-records">Patient Records</NavItem>
+            {isLoggedIn && (
+              <NavItem to="/patient-records">Patient Records</NavItem>
+            )}
           </Flex>
         </Flex>
         <Flex alignItems="center">
-          <Box>
-            <Heading variant="h2">Chat</Heading>
-          </Box>
-          <NavItem to="/profile">
-            <Icon boxSize={8} as={RxAvatar} />
-          </NavItem>
+          {isLoggedIn && (
+            <NavItem to="/profile">
+              <Icon boxSize={8} as={RxAvatar} />
+            </NavItem>
+          )}
           <Box>
             <LogOutBtn />
           </Box>

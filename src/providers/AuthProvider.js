@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { Auth } from "aws-amplify";
 
+import { ApiResult } from "../handlers";
+
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
@@ -21,19 +23,19 @@ const AuthProvider = ({ children }) => {
   const signUp = async (email, password) => {
     try {
       const { user } = await Auth.signUp(email, password);
-      console.log("Registered successfully", user);
+      return new ApiResult(ApiResult.SUCCESS, user);
     } catch (error) {
-      console.log("Registration failed", error);
+      return new ApiResult(ApiResult.FAILED, null, error);
     }
   };
 
   const signIn = async (email, password) => {
     try {
       const user = await Auth.signIn(email, password);
-      console.log("Successfully signed in", user);
       setLoggedIn(true);
+      return new ApiResult(ApiResult.SUCCESS, user);
     } catch (error) {
-      console.log("error signing in", error);
+      return new ApiResult(ApiResult.FAILED, null, error);
     }
   };
 
@@ -41,9 +43,9 @@ const AuthProvider = ({ children }) => {
     try {
       await Auth.signOut();
       setLoggedIn(false);
-      console.log("Signed out successfully");
+      return new ApiResult(ApiResult.SUCCESS, null);
     } catch (error) {
-      console.log("error signing out: ", error);
+      return new ApiResult(ApiResult.FAILED, null, error);
     }
   };
 
