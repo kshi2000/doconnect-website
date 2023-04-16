@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { useAuthContext } from "../providers/AuthProvider";
 import { useState } from "react";
-import { ApiResult } from "../handlers";
+import { ApiResult } from "../models";
 
 const AuthModifierBtn = () => {
   const { isLoggedIn, signOut } = useAuthContext();

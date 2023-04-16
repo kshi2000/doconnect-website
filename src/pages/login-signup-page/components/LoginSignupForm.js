@@ -7,7 +7,7 @@ import EmailInput from "./FormInput";
 import PasswordInput from "./FormInput";
 import ConfirmPasswordInput from "./FormInput";
 import { useAuthContext } from "../../../providers/AuthProvider";
-import { ApiResult } from "../../../handlers";
+import { ApiResult } from "../../../models";
 import FormFooter from "./FormFooter";
 
 const message = {

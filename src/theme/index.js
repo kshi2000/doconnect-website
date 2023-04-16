@@ -22,6 +22,7 @@ const theme = extendTheme({
   zIndices: {
     navBar: 1,
     overlayImage: 2,
+    chatBot: 3,
   },
 
   borders: {
