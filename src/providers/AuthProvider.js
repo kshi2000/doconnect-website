@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { Auth } from "aws-amplify";
 
-import { ApiResult } from "../handlers";
+import { ApiResult } from "../models";
 
 const AuthContext = createContext();
 

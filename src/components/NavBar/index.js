@@ -1,11 +1,10 @@
 import { Box, Flex, Heading, Icon } from "@chakra-ui/react";
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import { GiStethoscope } from "react-icons/gi";
 
 import NavItem from "./NavItem";
-import LogOutBtn from "../LogOutBtn";
+import LogOutBtn from "../AuthModifierBtn";
 import { useAuthContext } from "../../providers/AuthProvider";
 
 const NavBar = () => {
@@ -52,7 +51,6 @@ const NavBar = () => {
           </Box>
         </Flex>
       </Flex>
-      <Outlet />
     </>
   );
 };
