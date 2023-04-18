@@ -4,23 +4,30 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Text,
-  Input,
-  CloseButton,
-  IconButton,
-  InputGroup,
-  InputRightElement,
-  Box,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { IoSend } from "react-icons/io5";
+
+import FileInput from "./FileInput";
+import TextInput from "./TextInput";
+import ChatBotMenu from "./ChatBotMenu";
+import { chatBotMenuOptions } from "../../constants";
+import Message from "./Message";
 
 const ChatWindow = ({ onClick }) => {
-  const [file, setFile] = useState();
+  const [isTextInput, setIsTextInput] = useState(true);
+  const [messages, setMessages] = useState([]);
 
-  const onFileChange = (e) => {
-    console.log(e.target.files);
-    setFile(e.target.files[0]);
+  const handleEnteredQuery = (enteredMessage) => {
+    if (enteredMessage === null || enteredMessage.length === 0) return;
+    setMessages((prevMessages) => [...prevMessages, enteredMessage]);
+  };
+
+  const handleMenuOptionChange = (index) => {
+    if (index === (chatBotMenuOptions.length - 1).toString()) {
+      return onClick();
+    }
+
+    setIsTextInput((prevState) => !prevState);
   };
 
   return (
@@ -33,7 +40,7 @@ const ChatWindow = ({ onClick }) => {
         <Heading color="white" size="md">
           DOConnect Chatbot
         </Heading>
-        <CloseButton onClick={onClick} color="white" />
+        <ChatBotMenu onMenuOptionChange={handleMenuOptionChange} />
       </CardHeader>
       <CardBody
         overflow="scroll"
@@ -45,28 +52,20 @@ const ChatWindow = ({ onClick }) => {
           scrollbarWidth: "none",
         }}
       >
-        <Text color="white">Please upload a patient record</Text>
+        <Message
+          children="Please upload a file, or type in a query"
+          isChatBotMessage
+        />
+        {messages.map((msg, index) => (
+          <Message key={index} children={msg} />
+        ))}
       </CardBody>
       <CardFooter>
-        <InputGroup>
-          <Box>
-            <Input onChange={onFileChange} type="file" />
-            <Box
-              pointerEvents="none"
-              pl={3}
-              pt={2}
-              backgroundColor="white"
-              position="absolute"
-              bottom={0}
-              top={0}
-              left={0}
-              right={0}
-            >
-              <Text>{file?.name ?? "Upload a file"}</Text>
-            </Box>
-          </Box>
-          <InputRightElement children={<IconButton icon={<IoSend />} />} />
-        </InputGroup>
+        {isTextInput ? (
+          <TextInput onSubmitClicked={handleEnteredQuery} />
+        ) : (
+          <FileInput />
+        )}
       </CardFooter>
     </Card>
   );
