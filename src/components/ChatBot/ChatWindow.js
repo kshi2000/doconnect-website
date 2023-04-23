@@ -17,9 +17,27 @@ const ChatWindow = ({ onClick }) => {
   const [isTextInput, setIsTextInput] = useState(true);
   const [messages, setMessages] = useState([]);
 
+  const parseMessageAndRespond = async (enteredMessage) => {
+    //await message from chatbot, given a waiting duration of 2 sec by default
+    const chatbotMessage = await new Promise((resolve, reject) => {
+      setTimeout(() => resolve("from Chatbot " + enteredMessage), 2000);
+    });
+
+    //add the chatbot response to the message list
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { message: chatbotMessage, isChatBotMessage: true },
+    ]);
+  };
+
   const handleEnteredQuery = (enteredMessage) => {
     if (enteredMessage === null || enteredMessage.length === 0) return;
-    setMessages((prevMessages) => [...prevMessages, enteredMessage]);
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { message: enteredMessage, isChatBotMessage: false },
+    ]);
+
+    parseMessageAndRespond(enteredMessage);
   };
 
   const handleMenuOptionChange = (index) => {
@@ -56,8 +74,12 @@ const ChatWindow = ({ onClick }) => {
           children="Please upload a file, or type in a query"
           isChatBotMessage
         />
-        {messages.map((msg, index) => (
-          <Message key={index} children={msg} />
+        {messages.map((msgObj, index) => (
+          <Message
+            isChatBotMessage={msgObj.isChatBotMessage}
+            key={index}
+            children={msgObj.message}
+          />
         ))}
       </CardBody>
       <CardFooter>
