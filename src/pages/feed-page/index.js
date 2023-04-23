@@ -1,10 +1,23 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
+import { useState } from "react";
+
+import CreatePost from "./components/CreatePost";
+import PostsCatalogue from "./components/PostsCatalogue";
 
 const FeedPage = () => {
+  const [postData, setPostData] = useState([]);
+
+  const handlePostCreated = (content, images) =>
+    setPostData((postData) => [...postData, { content, images }]);
+
   return (
-    <Box>
-      <Button>Feed Page</Button>
-    </Box>
+    <Container my={10} variant="responsive">
+      <CreatePost onPostCreated={handlePostCreated} />
+      <Heading textAlign="center" variant="h2" fontWeight="bold">
+        Your Feed
+      </Heading>
+      <PostsCatalogue posts={postData} />
+    </Container>
   );
 };
 
