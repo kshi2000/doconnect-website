@@ -11,6 +11,7 @@ const theme = extendTheme({
       filterTab: "#D9D9D9",
     },
     background: {
+      profile: "#CDD3F5",
       gray: "#E9E5E5",
       transparentViolet: "rgba(205, 211, 245, 0.5)",
     },
@@ -96,7 +97,7 @@ const theme = extendTheme({
           fontWeight: ["normal"],
         },
         heading4: {
-          fontSize: ["18px", "18px", "22px", "22px", "24px"],
+          fontSize: ["18px", "18px", "22px", "22px", "22px"],
           fontWeight: ["semibold", "semibold", "medium", "medium", "medium"],
         },
         heading5: {

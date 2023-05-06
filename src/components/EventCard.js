@@ -32,7 +32,7 @@ const getPrettyDate = (dateInMillis) => {
 };
 
 const EventCard = ({ createdDateInMillis }) => (
-  <Card w="sm" borderRadius={10}>
+  <Card w="xs" borderRadius={10}>
     <Image
       h={200}
       w="full"
